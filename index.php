@@ -100,7 +100,6 @@ $(function(){
 	var $body = $('body');
 	var galleryClass = $('#pixelfies').attr('class');
 	var $pixelfies = $('.pixelfie').hide();
-	var $pixels = $('.pixel');
 	var $buttonParty = $('#party');
 	var $buttonRandom = $('#random');
 	var $alert = $('#alert');
@@ -108,6 +107,7 @@ $(function(){
 	var index = -1; 
 	var colorFlashMode;
 	var loopOn = true;
+
 	
 	// get random index but never same two in a row
 	var getRandomIndex = function() {
@@ -123,12 +123,16 @@ $(function(){
 	
 	// get next pixelfie
 	var nextPixelfiePlz = function() {
+
 		index = getRandomIndex();					
 		$('.current').removeClass('.current').hide();
 		var $currentPixelfie = $pixelfies.eq(index).show().addClass('current');
+		$pixels = $currentPixelfie.find('.pixel');
 		var $currentPixelfieId = $currentPixelfie.attr('id');
 		var $currentPixelfiePixels = $currentPixelfie.find('.pixel');
 		$body.removeAttr('class').addClass($currentPixelfieId);
+		
+		bindPixelMouseover();
 	};
 	
 	// rgb to hex
@@ -144,23 +148,27 @@ $(function(){
         }
         return hex;
     };
+    
+    var bindPixelMouseover = function(){
+		// background change on hover 
+			$('.current').find('.pixel').bind('mouseover', function(e){
+			loopOn = false;
+			var newColor = $(this).css('background-color');
+			$body.css('background-color', newColor );
+			$hex.text( rgbToHex(newColor) );
+		});
+    }
         
 	// randomize on click
 	$buttonRandom.click(function(e){
+		$('.current').find('.pixel').unbind('mouseover');
 		nextPixelfiePlz();
-	});
-	
-	// background change on hover 
-	$('.pixel').mouseover(function(e){
-		loopOn = false;
-		var newColor = $(this).css('background-color');
-		$body.css('background-color', newColor );
-		$hex.text( rgbToHex(newColor) );
 	});
 		
 	// init if value given, else random
 	if ( galleryClass ) {
 		$('#' + galleryClass).show().addClass('current');
+		bindPixelMouseover();
 	}
 	else {
 		$buttonRandom.click();

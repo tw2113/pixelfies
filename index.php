@@ -37,7 +37,7 @@
 		#about-this-thing a { color: #000; }
 		.pixel { width: 12px; height: 12px; float: left; }
 		.break { width: 0; height: 0;  clear: both; }	
-		.pixelfie { display: none; margin: 20px; position: relative; }
+		.pixelfie { display:none; margin: 20px; position: relative; }
 		.model { position: absolute; bottom: 12px; left: 12px; background: #fff; padding: 5px; font-size: 2em; text-transform: uppercase; }
 	</style>
 </head>
@@ -99,7 +99,7 @@ $(function(){
 
 	var $body = $('body');
 	var galleryClass = $('#pixelfies').attr('class');
-	var $pixelfies = $('.pixelfie').hide();
+	var $pixelfies = $('.pixelfie');
 	var $buttonParty = $('#party');
 	var $buttonRandom = $('#random');
 	var $alert = $('#alert');
@@ -123,10 +123,8 @@ $(function(){
 	
 	// get next pixelfie
 	var nextPixelfiePlz = function() {
-
 		index = getRandomIndex();					
-		$('.current').removeClass('.current').hide();
-		var $currentPixelfie = $pixelfies.eq(index).show().addClass('current');
+		var $currentPixelfie = $pixelfies.eq(index).fadeIn().addClass('current');
 		$pixels = $currentPixelfie.find('.pixel');
 		var $currentPixelfieId = $currentPixelfie.attr('id');
 		var $currentPixelfiePixels = $currentPixelfie.find('.pixel');
@@ -151,7 +149,7 @@ $(function(){
     
     var bindPixelMouseover = function(){
 		// background change on hover 
-			$('.current').find('.pixel').bind('mouseover', function(e){
+			$('.current').find('.pixel').on('mouseover', function(e){
 			loopOn = false;
 			var newColor = $(this).css('background-color');
 			$body.css('background-color', newColor );
@@ -161,8 +159,10 @@ $(function(){
         
 	// randomize on click
 	$buttonRandom.click(function(e){
-		$('.current').find('.pixel').unbind('mouseover');
-		nextPixelfiePlz();
+		var currentPixels = $('.current').find('.pixel');
+		currentPixels.off();	
+		$('.current').removeClass('current').hide();
+		nextPixelfiePlz();	
 	});
 		
 	// init if value given, else random

@@ -32,13 +32,19 @@
 	<style type="text/css">
 		body { position: relative; font-family: monospace; text-align: center; }
 		a { color: blue; }
-		#gallery { display: inline-block; width: auto; margin: 10px; position: relative; text-align: center; width: 800px; }	
-		#about-this-thing { position: absolute; top: 20px; right: 0; text-align: right; z-index: 100000000; font-weight: bold; padding: 10px; background: rgba(255,255,255,.2); }
+		#gallery { display: inline-block; width: auto; margin: 10px; position: relative; text-align: center; width: 100%; max-width: 800px; }	
+		#about-this-thing { float: right; text-align: right; z-index: 100000000; font-weight: bold; padding: 10px; margin-top: 10px;  background: rgba(255,255,255,.2); }
 		#about-this-thing a { color: #000; }
 		.pixel { width: 12px; height: 12px; float: left; }
 		.break { width: 0; height: 0;  clear: both; }	
-		.pixelfie { display:none; margin: 20px; position: relative; }
+		.pixelfie { display:none; margin: 10px; position: relative; float: left; }
 		.model { position: absolute; bottom: 12px; left: 12px; background: #fff; padding: 5px; font-size: 2em; text-transform: uppercase; }
+		
+		@media (max-width: 800px) { 
+			#gallery { width: 628px; margin: 0 auto; display: block; }
+			#about-this-thing { max-width: 588px; float: none; margin: 0; display: block; text-align: center; }
+			#pixelfies { float: none; margin: 0 auto; text-align: center; }
+		}
 	</style>
 </head>
 

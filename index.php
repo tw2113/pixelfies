@@ -33,17 +33,18 @@
 		body { position: relative; font-family: monospace; text-align: center; }
 		a { color: blue; }
 		#gallery { display: inline-block; width: auto; margin: 10px; position: relative; text-align: center; width: 100%; max-width: 800px; }	
-		#about-this-thing { float: right; text-align: right; z-index: 100000000; font-weight: bold; padding: 10px; margin-top: 10px;  background: rgba(255,255,255,.2); }
+		#about-this-thing { width: 175px; float: right; text-align: right; z-index: 100000000; font-weight: bold; padding: 10px; margin-top: 10px;  background: rgba(255,255,255,.2); }
 		#about-this-thing a { color: #000; }
+		#about-this-thing em { font-weight: normal; font-style: italic; }
 		.pixel { width: 12px; height: 12px; float: left; }
 		.break { width: 0; height: 0;  clear: both; }	
-		#pixelfies { width: 588px; height: 588px; padding: 0; margin: 10px; background: turquoise url('hourglass.gif') no-repeat center center; }
+		#pixelfies { width: 588px; height: 588px; padding: 0; margin: 10px 0; background: turquoise url('hourglass.gif') no-repeat center center; }
 		.pixelfie { display:none; position: relative; float: left; }
 		.model { position: absolute; bottom: 12px; left: 12px; background: #fff; padding: 5px; font-size: 2em; text-transform: uppercase; }
 		
 		@media (max-width: 800px) { 
-			#gallery { width: 628px; margin: 0 auto; display: block; }
-			#about-this-thing { max-width: 588px; float: none; margin: 0; display: block; text-align: center; }
+			#gallery { width: 588px; margin: 0 auto; display: block; }
+			#about-this-thing { width: 100%; max-width: 568px; float: none; margin: 0 0 10px; display: block; text-align: center; }
 			#pixelfies { float: none; margin: 0 auto; text-align: center; }
 		}
 	</style>
@@ -63,13 +64,14 @@
 	<h1>#pixelfies</h1>
 	<p>real people<br />
 	real selfies<br />
-	real pixels<br />
 	real drama</p>
 	<p>made by<br /><a href="http://twitter.com/jennschiffer">@jennschiffer</a></p>
 	<div id="controls">
 		<button id="random">random pixelfie</button>
 		<p>#<span id="hex">ffffff</span></p>
 	</div>
+	
+	<p><em>show *your* true colors by sending a selfie via <a href="mailto:jenn@pancaketheorem.com">email</a>, <a href="http://github.com/jennschiffer/pixelfies">github</a>, or <a href="http://twitter.com/jennschiffer">twitter</a>.</em></p>
 </div>
 
 	<div id="pixelfies" <?php if ( $babeClass != $freshBabe ) { echo 'class="' . $babeClass . '"'; } ?>>

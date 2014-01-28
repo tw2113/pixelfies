@@ -37,7 +37,8 @@
 		#about-this-thing a { color: #000; }
 		.pixel { width: 12px; height: 12px; float: left; }
 		.break { width: 0; height: 0;  clear: both; }	
-		.pixelfie { display:none; margin: 10px; position: relative; float: left; }
+		#pixelfies { width: 588px; height: 588px; padding: 0; margin: 10px; background: turquoise url('hourglass.gif') no-repeat center center; }
+		.pixelfie { display:none; position: relative; float: left; }
 		.model { position: absolute; bottom: 12px; left: 12px; background: #fff; padding: 5px; font-size: 2em; text-transform: uppercase; }
 		
 		@media (max-width: 800px) { 
@@ -130,7 +131,7 @@ $(function(){
 	// get next pixelfie
 	var nextPixelfiePlz = function() {
 		index = getRandomIndex();					
-		var $currentPixelfie = $pixelfies.eq(index).fadeIn().addClass('current');
+		var $currentPixelfie = $pixelfies.eq(index).show().addClass('current');
 		$pixels = $currentPixelfie.find('.pixel');
 		var $currentPixelfieId = $currentPixelfie.attr('id');
 		var $currentPixelfiePixels = $currentPixelfie.find('.pixel');

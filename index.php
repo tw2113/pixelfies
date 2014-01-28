@@ -26,9 +26,10 @@
 ?>
 
 <!doctype html>
-<html>
-<head>
+<html lang="en">
+<meta charset="UTF-8">
 	<title>~*pixelfies*~ real selfies of real people with real pixels</title>
+	<link rel="icon" type="image/png" href="favicon.png">
 	<style type="text/css">
 		body { position: relative; font-family: monospace; text-align: center; }
 		a { color: blue; }
@@ -93,7 +94,7 @@
 					}
 					echo '<div class="break"></div>';				
 				}
-				echo '<div class="model"><a href="/stuff/pixelfies/?babe=' . $selfie . '">' . $selfie . '</a></div>';
+				echo '<div class="model"><a href="http://pixelfies.us/?babe=' . $selfie . '">' . $selfie . '</a></div>';
 				echo '</div>';
 			}
 		?>

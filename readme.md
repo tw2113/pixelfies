@@ -1,3 +1,13 @@
+pixelfies Last.FM
+---
+
+## This is a forked art project.
+
+Uses recently listened to tracks from Last.FM profiles instead of original selfies. Change user via `?user=USERNAME` query parameter, otherwise you just get my profile. Worth considering getting your own API key too
+
+
+
+
 pixelfies
 ---
 real people
@@ -11,7 +21,7 @@ Using PHP and jQuery, `pixelfies` pixelates and showcase selfies from friends an
 
 ## Send me your selfies
 
-* via email [jenn@pancaketheorem.com](mailto:jenn@pancaketheorem.com) 
+* via email [jenn@pancaketheorem.com](mailto:jenn@pancaketheorem.com)
 * via twitter [@jennschiffer](http://twitter.com/jennschiffer)
 * or via pull request here!
 
